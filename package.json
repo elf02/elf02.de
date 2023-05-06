@@ -1,0 +1,11 @@
+{
+  "name": "elf02",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/style.css -o ./public/style.css --watch",
+    "build": "npx tailwindcss -i ./src/style.css -o ./public/style.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
+  }
+}
