@@ -7,7 +7,7 @@ module.exports = {
     theme: {
         extend: {
             animation: {
-                'bg-smooth': 'bg-smooth 20s linear infinite',
+                'bg-smooth': 'bg-smooth 15s linear infinite',
             },
             keyframes: {
                 'bg-smooth': {
