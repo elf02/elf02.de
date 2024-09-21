@@ -2,8 +2,7 @@
 module.exports = {
     darkMode: 'selector',
     content: [
-        "./public/**/*.{html,js}",
-        "./src/**/*.{html,js}"
+        "./public/**/*.{html,js}"
     ],
     theme: {
         fontFamily: {
