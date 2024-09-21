@@ -2,25 +2,82 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>elf02</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
     <link rel="manifest" href="/assets/site.webmanifest">
+    <meta name="description" content="I'm a web developer. I build websites & web applications with PHP, Vue.js and CSS.">
     <link href="/style.css" rel="stylesheet">
 </head>
-<body class="font-sans antialiased text-gray-600 grid place-items-center absolute inset-0">
-    <header class="flex flex-col items-center space-y-5">
-        <div class="border border-gray-600 p-2 stack">
-            <h1 class="animate-bg-smooth cursor-default text-6xl text-transparent font-extrabold bg-clip-text bg-[length:300%_auto] bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500">
-                elf02
-            </h1>
+<body class="font-jetbrainsmono antialiased text-gray-600 dark:text-white grid place-items-center absolute inset-0 bg-white dark:bg-slate-900">
+    <div class="absolute right-4 top-4">
+        <button id="light-switch-off" class="block dark:hidden transition ease-out delay-75 hover:text-red-500">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+            </svg>
+        </button>
+        <button id="light-switch-on" class="hidden dark:block transition ease-out delay-75 hover:text-red-500">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+            </svg>
+        </button>
+    </div>
+    <header class="flex flex-col items-center space-y-3">
+        <h1 class="animate-elf02 cursor-default text-clamp text-transparent bg-clip-text bg-[length:200%_auto] bg-gradient-elf02">
+            elf02
+        </h1>
+        <div class="flex gap-3">
+            <a
+                href="https://github.com/elf02" target="_blank"
+                class="text-sm flex items-center gap-1 transition ease-out delay-75 hover:text-red-500"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+                </svg>
+                github
+            </a>
+            <a
+                href="mailto:chris+hello@elf02.de"
+                class="text-sm flex items-center gap-1 transition ease-out delay-75 hover:text-red-500"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+                </svg>
+                mail
+            </a>
         </div>
-        <a href="https://github.com/elf02" target="_blank" class="font-mono text-xs block p-1 transition ease-linear delay-100 hover:text-red-500">
-            [github]
-        </a>
     </header>
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+            if (
+                localStorage.theme === 'dark' ||
+                (
+                    !('theme' in localStorage) &&
+                    window.matchMedia('(prefers-color-scheme: dark)').matches
+                )
+            ) {
+                document.documentElement.classList.add('dark')
+            }
+            else {
+                document.documentElement.classList.remove('dark')
+            }
+
+            document
+                .getElementById('light-switch-off')
+                .addEventListener('click', (event) => {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                });
+
+            document
+                .getElementById('light-switch-on')
+                .addEventListener('click', (event) => {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                });
+        });
+    </script>
 </body>
 </html>
