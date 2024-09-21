@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
     <link rel="manifest" href="/assets/site.webmanifest">
     <meta name="description" content="I'm a web developer. I build websites & web applications with PHP, Vue.js and CSS.">
+    <meta name="theme-color" content="#ffffff">
     <link href="/style.css" rel="stylesheet">
 </head>
 <body class="font-jetbrainsmono antialiased text-gray-600 dark:text-white grid place-items-center absolute inset-0 bg-white dark:bg-slate-900">
@@ -50,7 +51,9 @@
         </div>
     </header>
     <script>
-        document.addEventListener("DOMContentLoaded", (event) => {
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const themeColor = document.querySelector('meta[name="theme-color"]');
+
             if (
                 localStorage.theme === 'dark' ||
                 (
@@ -58,10 +61,12 @@
                     window.matchMedia('(prefers-color-scheme: dark)').matches
                 )
             ) {
-                document.documentElement.classList.add('dark')
+                document.documentElement.classList.add('dark');
+                themeColor.setAttribute('content', '#0f172a');
             }
             else {
-                document.documentElement.classList.remove('dark')
+                document.documentElement.classList.remove('dark');
+                themeColor.setAttribute('content', '#ffffff');
             }
 
             document
@@ -69,6 +74,7 @@
                 .addEventListener('click', (event) => {
                     document.documentElement.classList.add('dark');
                     localStorage.setItem('theme', 'dark');
+                    themeColor.setAttribute('content', '#0f172a');
                 });
 
             document
@@ -76,6 +82,7 @@
                 .addEventListener('click', (event) => {
                     document.documentElement.classList.remove('dark');
                     localStorage.setItem('theme', 'light');
+                    themeColor.setAttribute('content', '#ffffff');
                 });
         });
     </script>
