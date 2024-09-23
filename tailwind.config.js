@@ -16,10 +16,10 @@ module.exports = {
                 clamp: 'clamp(3.5rem, 2.923rem + 2.308vw, 5rem)'
             },
             animation: {
-                'elf02': 'font-pump 1.5s ease-in-out forwards, bg-smooth 15s linear 1.6s infinite'
+                'elf02': 'font-pump 1.5s ease-in-out forwards, color-slide 15s linear 1.6s infinite'
             },
             keyframes: {
-                'bg-smooth': {
+                'color-slide': {
                     '0%': { 'background-position': '0%' },
                     '50%': { 'background-position': '100%' },
                     '100%': { 'background-position': '0%' }
